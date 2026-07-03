@@ -44,7 +44,7 @@ export function Preloader() {
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
           <div className="preloader__inner">
-            <span className="preloader__label mono">Loading portfolio</span>
+            <span className="preloader__label mono">mitesh-anshu.dev</span>
             <h2 className="preloader__name display">{personal.firstName}</h2>
             <div className="preloader__bar">
               <motion.div
