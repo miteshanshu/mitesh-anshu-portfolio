@@ -1,62 +1,82 @@
 import { motion } from 'framer-motion';
-import { Database, Layers, Shield } from 'lucide-react';
-import { SectionHeader } from '../common/SectionHeader';
-import { personal } from '../../data/portfolio';
+import { Code2, Layers, Sparkles } from 'lucide-react';
+import { personal, stats, uxPrinciples } from '../../data/portfolio';
+import { fadeUp, staggerContainer } from '../../lib/animations';
+import { useCountUp } from '../../hooks/useCountUp';
+import { SectionHeading } from '../ui/SectionHeading';
+import { TiltCard } from '../ui/TiltCard';
 import './About.css';
 
-const highlights = [
-  {
-    icon: Layers,
-    title: 'Full-Stack Delivery',
-    text: 'End-to-end features from React frontends to Express APIs and PostgreSQL schemas.',
-  },
-  {
-    icon: Shield,
-    title: 'RBAC & Auth',
-    text: 'JWT authentication and role-based middleware for secure, access-controlled systems.',
-  },
-  {
-    icon: Database,
-    title: 'Data Integrity',
-    text: 'Transactional workflows with stored procedures, row-level locking, and concurrency-safe design.',
-  },
-];
+function StatItem({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const { count, ref } = useCountUp(value);
+
+  return (
+    <div className="about__stat">
+      <span className="about__stat-value display" ref={ref}>
+        {count}
+        {suffix}
+      </span>
+      <span className="about__stat-label">{label}</span>
+    </div>
+  );
+}
+
+const icons = [Layers, Code2, Sparkles];
 
 export function About() {
   return (
     <section id="about" className="about section">
       <div className="container">
-        <SectionHeader label="About" title="Building reliable systems end to end" />
+        <SectionHeading
+          num="02"
+          label="About Me"
+          title="Engineering with design intent"
+          subtitle="I build products where backend reliability meets thoughtful frontend craft."
+        />
 
-        <div className="about__grid">
-          <motion.p
-            className="about__summary"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+        <div className="about__layout">
+          <motion.div
+            className="about__summary-wrap"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
           >
-            {personal.summary}
-          </motion.p>
+            <motion.p className="about__summary" variants={fadeUp}>
+              {personal.summary}
+            </motion.p>
 
-          <div className="about__cards">
-            {highlights.map((item, index) => (
-              <motion.article
-                key={item.title}
-                className="about__card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <div className="about__card-icon">
-                  <item.icon size={22} />
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </motion.article>
-            ))}
-          </div>
+            <motion.div className="about__stats" variants={fadeUp}>
+              {stats.map((s) => (
+                <StatItem key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
+              ))}
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="about__bento"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            {uxPrinciples.map((item, i) => {
+              const Icon = icons[i] ?? Sparkles;
+              return (
+                <motion.div key={item.title} variants={fadeUp} custom={i}>
+                  <TiltCard>
+                    <div className="about__card">
+                      <div className="about__card-icon">
+                        <Icon size={22} />
+                      </div>
+                      <h3 className="display">{item.title}</h3>
+                      <p>{item.text}</p>
+                    </div>
+                  </TiltCard>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </div>
     </section>

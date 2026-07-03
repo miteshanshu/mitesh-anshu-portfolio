@@ -1,0 +1,24 @@
+.tilt-card {
+  perspective: 1000px;
+  border-radius: var(--radius-lg);
+}
+
+.tilt-card__inner {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tilt-card:hover .tilt-card__inner {
+  border-color: var(--border-hover);
+}
+
+.tilt-card--glow:hover .tilt-card__inner {
+  box-shadow:
+    0 0 0 1px rgba(255, 107, 53, 0.1),
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(255, 107, 53, 0.08);
+}

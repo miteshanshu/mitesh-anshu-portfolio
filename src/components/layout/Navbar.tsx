@@ -1,49 +1,55 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { navLinks, personal } from '../../data/portfolio';
+import { navLinks } from '../../data/portfolio';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
+import { MagneticButton } from '../ui/MagneticButton';
 import './Navbar.css';
 
 export function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const activeId = useScrollSpy(navLinks.map((link) => link.id));
+  const [open, setOpen] = useState(false);
+  const active = useScrollSpy(navLinks.map((l) => l.id));
 
-  const handleNavClick = (id: string) => {
-    setMenuOpen(false);
+  const go = (id: string) => {
+    setOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <nav className="navbar">
+    <header className="navbar">
       <div className="container navbar__inner">
-        <button type="button" className="navbar__brand" onClick={() => handleNavClick('home')}>
-          <span className="navbar__brand-mark">MA</span>
-          <span className="navbar__brand-name">{personal.name.split(' ')[0]}</span>
+        <button type="button" className="navbar__logo display" onClick={() => go('home')}>
+          <span className="navbar__logo-mark">M</span>
+          <span className="navbar__logo-text">itesh<span className="gradient-text">.</span></span>
         </button>
 
-        <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
+        <nav className={`navbar__nav ${open ? 'navbar__nav--open' : ''}`}>
           {navLinks.map((link) => (
-            <li key={link.id}>
-              <button
-                type="button"
-                className={`navbar__link ${activeId === link.id ? 'navbar__link--active' : ''}`}
-                onClick={() => handleNavClick(link.id)}
-              >
-                {link.label}
-              </button>
-            </li>
+            <button
+              key={link.id}
+              type="button"
+              className={`navbar__link ${active === link.id ? 'navbar__link--active' : ''}`}
+              onClick={() => go(link.id)}
+            >
+              <span className="navbar__link-num mono">{link.num}</span>
+              {link.label}
+            </button>
           ))}
-        </ul>
+        </nav>
 
-        <button
-          type="button"
-          className="navbar__toggle"
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="navbar__actions">
+          <MagneticButton href="/resume.pdf" variant="outline" external className="navbar__resume">
+            Resume
+          </MagneticButton>
+          <button
+            type="button"
+            className="navbar__toggle"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
-    </nav>
+    </header>
   );
 }
