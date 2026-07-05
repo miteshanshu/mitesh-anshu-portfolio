@@ -1,10 +1,7 @@
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
-import { Preloader } from './components/effects/Preloader';
+import { GridBackground } from './components/effects/GridBackground';
 import { ScrollProgress } from './components/effects/ScrollProgress';
-import { GrainOverlay } from './components/effects/GrainOverlay';
-import { AmbientOrbs } from './components/effects/AmbientOrbs';
-import { CursorGlow } from './components/effects/CursorGlow';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Work } from './components/sections/Work';
@@ -14,11 +11,8 @@ import { Contact } from './components/sections/Contact';
 function App() {
   return (
     <>
-      <Preloader />
+      <GridBackground />
       <ScrollProgress />
-      <AmbientOrbs />
-      <GrainOverlay />
-      <CursorGlow />
       <Navbar />
       <main>
         <Hero />

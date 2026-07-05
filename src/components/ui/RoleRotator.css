@@ -1,11 +1,11 @@
 .role-rotator {
   display: inline-block;
   position: relative;
-  min-width: 200px;
+  min-width: 180px;
 }
 
 .role-rotator__text {
   display: inline-block;
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--text);
 }

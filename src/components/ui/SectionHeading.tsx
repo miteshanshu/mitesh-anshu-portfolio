@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 import { fadeUp } from '../../lib/animations';
 import './SectionHeading.css';
 
 interface SectionHeadingProps {
   num: string;
   label: string;
-  title: string;
+  title: ReactNode;
   subtitle?: string;
 }
 
@@ -19,6 +20,7 @@ export function SectionHeading({ num, label, title, subtitle }: SectionHeadingPr
     >
       <motion.div className="section-heading__meta" variants={fadeUp} custom={0}>
         <span className="section-heading__num mono">{num}</span>
+        <span className="section-heading__sep" />
         <span className="section-heading__label mono">{label}</span>
       </motion.div>
       <motion.h2 className="section-heading__title display" variants={fadeUp} custom={1}>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navLinks } from '../../data/portfolio';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
-import { MagneticButton } from '../ui/MagneticButton';
+import { Button } from '../ui/Button';
 import './Navbar.css';
 
 export function Navbar() {
@@ -17,12 +17,12 @@ export function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar__inner">
-        <button type="button" className="navbar__logo display" onClick={() => go('home')}>
-          <span className="navbar__logo-mark">M</span>
-          <span className="navbar__logo-text">itesh<span className="gradient-text">.</span></span>
+        <button type="button" className="navbar__logo" onClick={() => go('home')}>
+          <span className="navbar__logo-mark mono">MKA</span>
+          <span className="navbar__logo-name display">Mitesh</span>
         </button>
 
-        <nav className={`navbar__nav ${open ? 'navbar__nav--open' : ''}`}>
+        <nav className={`navbar__nav ${open ? 'navbar__nav--open' : ''}`} aria-label="Main">
           {navLinks.map((link) => (
             <button
               key={link.id}
@@ -37,16 +37,17 @@ export function Navbar() {
         </nav>
 
         <div className="navbar__actions">
-          <MagneticButton href="/resume.pdf" variant="outline" external className="navbar__resume">
+          <Button href="/resume.pdf" variant="outline" external size="sm" className="navbar__resume">
             Resume
-          </MagneticButton>
+          </Button>
           <button
             type="button"
             className="navbar__toggle"
             aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>

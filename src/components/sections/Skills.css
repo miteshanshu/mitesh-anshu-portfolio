@@ -1,45 +1,66 @@
-.skills__body {
-  padding-top: var(--section-pad);
+.skills {
+  position: relative;
+  z-index: 1;
 }
 
-.skills__bento {
+.skills__body {
+  margin-top: 2rem;
+}
+
+.skills__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  margin-top: 3rem;
 }
 
-.skills__cell--wide {
+.skills__card {
+  padding: 1.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.skills__card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.skills__card--wide {
   grid-column: span 2;
 }
 
-.skills__cell--edu {
+.skills__card--edu {
   grid-column: span 2;
 }
 
-.skills__cell--achieve {
+.skills__card--achieve {
   grid-column: span 1;
   grid-row: span 2;
 }
 
-.skills__card {
-  padding: 1.5rem;
-  height: 100%;
+.skills__card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
 }
 
-.skills__card-head {
-  margin-bottom: 1.25rem;
+.skills__card-top h3 {
+  font-size: 1.25rem;
 }
 
-.skills__card-head h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
+.skills__level {
+  font-size: 0.68rem;
+  color: var(--accent);
 }
 
 .skills__bar {
   height: 3px;
   background: var(--border);
   border-radius: 99px;
+  margin-bottom: 1.25rem;
   overflow: hidden;
 }
 
@@ -56,44 +77,31 @@
 }
 
 .skills__tags span {
-  padding: 0.35rem 0.7rem;
-  font-size: 0.78rem;
-  font-family: var(--font-mono);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
-  background: var(--surface);
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  transition: all 0.2s;
+  border-radius: 999px;
 }
 
-.skills__tags span:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.skills__edu-label {
+.skills__label {
   display: block;
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.skills__card--edu h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
+  margin-bottom: 1rem;
 }
 
 .skills__degree {
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  font-size: 0.92rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 
 .skills__period {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
   margin-bottom: 1.25rem;
 }
@@ -105,25 +113,25 @@
 }
 
 .skills__coursework span {
-  padding: 0.3rem 0.65rem;
+  padding: 0.3rem 0.6rem;
   font-size: 0.72rem;
-  font-family: var(--font-mono);
-  background: var(--accent-soft);
-  border-radius: 999px;
-  color: var(--accent);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
 }
 
 .skills__achievement {
-  margin-bottom: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .skills__achievement:last-child {
-  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .skills__achievement h4 {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.05rem;
   margin-bottom: 0.35rem;
 }
 
@@ -134,26 +142,14 @@
 }
 
 @media (max-width: 900px) {
-  .skills__bento {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .skills__cell--wide,
-  .skills__cell--edu,
-  .skills__cell--achieve {
-    grid-column: span 2;
-    grid-row: auto;
-  }
-}
-
-@media (max-width: 600px) {
-  .skills__bento {
+  .skills__grid {
     grid-template-columns: 1fr;
   }
 
-  .skills__cell--wide,
-  .skills__cell--edu,
-  .skills__cell--achieve {
+  .skills__card--wide,
+  .skills__card--edu,
+  .skills__card--achieve {
     grid-column: auto;
+    grid-row: auto;
   }
 }

@@ -3,7 +3,7 @@ import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
 import { personal } from '../../data/portfolio';
 import { fadeUp } from '../../lib/animations';
 import { SectionHeading } from '../ui/SectionHeading';
-import { MagneticButton } from '../ui/MagneticButton';
+import { Button } from '../ui/Button';
 import { GithubIcon, LinkedinIcon } from '../common/SocialIcons';
 import './Contact.css';
 
@@ -14,56 +14,59 @@ export function Contact() {
         <SectionHeading
           num="05"
           label="Contact"
-          title="Let's build something remarkable"
+          title={
+            <>
+              Let&apos;s build something <em className="serif-italic accent-em">remarkable</em>
+            </>
+          }
           subtitle="Open to frontend, full-stack, and product engineering roles."
         />
 
         <motion.div
-          className="contact__panel"
+          className="contact__layout"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <motion.div className="contact__main" variants={fadeUp}>
-            <h3 className="contact__headline display">
+          <motion.div className="contact__cta" variants={fadeUp}>
+            <p className="contact__prompt display">
               Have a project or role in mind?
-              <span className="gradient-text"> Let&apos;s talk.</span>
-            </h3>
-
-            <MagneticButton href={`mailto:${personal.email}`}>
+            </p>
+            <Button href={`mailto:${personal.email}`} size="lg">
               <Mail size={18} />
               {personal.email}
               <ArrowUpRight size={18} />
-            </MagneticButton>
+            </Button>
+            <p className="contact__hint mono">Typically responds within 24 hours</p>
           </motion.div>
 
-          <motion.div className="contact__details" variants={fadeUp} custom={1}>
-            <a href={`tel:${personal.phone.replace(/\s/g, '')}`} className="contact__detail">
-              <Phone size={18} />
+          <motion.div className="contact__grid" variants={fadeUp} custom={1}>
+            <a href={`tel:${personal.phone.replace(/\s/g, '')}`} className="contact__card">
+              <Phone size={20} />
               <div>
-                <span className="mono">Phone</span>
-                <span>{personal.phone}</span>
+                <span className="contact__card-label mono">Phone</span>
+                <span className="contact__card-value">{personal.phone}</span>
               </div>
             </a>
-            <div className="contact__detail">
-              <MapPin size={18} />
+            <div className="contact__card">
+              <MapPin size={20} />
               <div>
-                <span className="mono">Location</span>
-                <span>{personal.location}</span>
+                <span className="contact__card-label mono">Location</span>
+                <span className="contact__card-value">{personal.location}</span>
               </div>
             </div>
-            <a href={personal.github} target="_blank" rel="noopener noreferrer" className="contact__detail">
-              <GithubIcon size={18} />
+            <a href={personal.github} target="_blank" rel="noopener noreferrer" className="contact__card">
+              <GithubIcon size={20} />
               <div>
-                <span className="mono">GitHub</span>
-                <span>github.com/miteshanshu</span>
+                <span className="contact__card-label mono">GitHub</span>
+                <span className="contact__card-value">github.com/miteshanshu</span>
               </div>
             </a>
-            <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="contact__detail">
-              <LinkedinIcon size={18} />
+            <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="contact__card">
+              <LinkedinIcon size={20} />
               <div>
-                <span className="mono">LinkedIn</span>
-                <span>linkedin.com/in/miteshanshu</span>
+                <span className="contact__card-label mono">LinkedIn</span>
+                <span className="contact__card-value">linkedin.com/in/miteshanshu</span>
               </div>
             </a>
           </motion.div>

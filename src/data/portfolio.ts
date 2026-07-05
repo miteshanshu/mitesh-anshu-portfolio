@@ -2,9 +2,9 @@ export const personal = {
   name: 'Mitesh Kumar Anshu',
   firstName: 'Mitesh',
   title: 'Full-Stack Engineer',
-  roles: ['Full-Stack Engineer', 'React Developer', 'UI Builder', 'Backend Architect'],
+  roles: ['Full-Stack Engineer', 'Frontend Developer', 'UI/UX Builder', 'Systems Thinker'],
   tagline:
-    'Building end-to-end applications with transactional backends and responsive, data-driven frontends.',
+    'I design and ship interfaces that feel intentional — backed by transactional APIs, role-based systems, and production-grade architecture.',
   email: 'miteshanshu1@gmail.com',
   phone: '+91 76674 99479',
   linkedin: 'https://linkedin.com/in/miteshanshu',
@@ -13,7 +13,7 @@ export const personal = {
   location: 'India',
   availability: 'Open to full-time roles',
   summary:
-    'Full-stack engineer building end-to-end applications across React, Node.js, and PostgreSQL, with hands-on experience in designing transactional backend systems and responsive, data-driven frontend interfaces.',
+    'Full-stack engineer with a frontend-first mindset. I translate complex backend logic — RBAC, stored procedures, race-condition safety — into clear, responsive interfaces that users actually enjoy. B.Tech CSE, Roorkee Institute of Technology (2021–2025).',
 };
 
 export const stats = [
@@ -26,32 +26,27 @@ export const stats = [
 export const skills = [
   {
     category: 'Languages',
-    items: ['Java', 'JavaScript', 'SQL'],
-    icon: 'code',
+    items: ['Java', 'JavaScript', 'TypeScript', 'SQL'],
     level: 90,
   },
   {
     category: 'Frontend',
-    items: ['React.js', 'Vite', 'HTML', 'CSS', 'Recharts', 'Zustand', 'Material UI'],
-    icon: 'layout',
-    level: 88,
+    items: ['React.js', 'Vite', 'HTML', 'CSS', 'Framer Motion', 'Recharts', 'Zustand', 'Material UI'],
+    level: 92,
   },
   {
     category: 'Backend',
     items: ['Node.js', 'Express.js', 'REST APIs', 'JWT', 'RBAC', 'Helmet', 'CORS'],
-    icon: 'server',
-    level: 92,
+    level: 90,
   },
   {
     category: 'Databases',
     items: ['PostgreSQL', 'MongoDB', 'Stored Procedures', 'Row-Level Locking', 'Trigram Indexes'],
-    icon: 'database',
-    level: 90,
+    level: 88,
   },
   {
     category: 'Tooling',
     items: ['Git', 'GitHub', 'Postman', 'VS Code', 'Vercel', 'Render'],
-    icon: 'tool',
     level: 85,
   },
 ];
@@ -69,18 +64,23 @@ export const projects = [
     metrics: [
       { label: 'API Domains', value: '12' },
       { label: 'Portals', value: '3' },
-      { label: 'Stack', value: 'MERN+SQL' },
+      { label: 'Users', value: 'RBAC' },
     ],
+    problem:
+      'Libraries need distinct workflows for admins, librarians, and students — with reliable checkout/return under concurrent access.',
+    solution:
+      'Built three role-specific portals with shared design tokens, analytics dashboards, and a PostgreSQL backend using stored procedures and row-level locking.',
+    outcome:
+      'Deployed end-to-end on Vercel + Render. Documented ER diagrams, auth flows, and API references for team onboarding.',
     highlights: [
-      'End-to-end role-based platform with Admin, Librarian, and Student portals',
-      'Responsive UI with state-driven rendering and analytics dashboards',
-      'Transactional checkout/return via PL/pgSQL stored procedures',
-      'Race-condition safety with partial indexes and SELECT FOR UPDATE locking',
-      'Fuzzy search with PostgreSQL trigram indexes across catalog and members',
-      'Deployed on Vercel (frontend) and Render (backend)',
+      'Admin, Librarian & Student portals with role-gated navigation',
+      'Responsive UI with state-driven rendering and Recharts analytics',
+      'Transactional checkout via PL/pgSQL stored procedures',
+      'Race-condition safety with SELECT FOR UPDATE & partial indexes',
+      'Fuzzy catalog search with PostgreSQL trigram indexes',
     ],
     featured: true,
-    gradient: 'from-orange-500/20 via-violet-500/10 to-cyan-500/20',
+    color: '#c8f135',
   },
   {
     id: 'billing',
@@ -95,13 +95,16 @@ export const projects = [
       { label: 'Algorithms', value: 'BOGO' },
       { label: 'Language', value: 'Java' },
     ],
+    problem: 'Discount logic scattered across conditionals — hard to extend with new pricing rules.',
+    solution: 'Strategy Pattern with composable ShoppingCart — each discount is a swappable algorithm.',
+    outcome: 'Clean domain separation demonstrating OOP design principles interviewers look for.',
     highlights: [
       'Strategy Pattern for interchangeable discount algorithms',
-      'Composition-based ShoppingCart with modular pricing logic',
-      'Clean separation between domain models and discount behaviour',
+      'Composition-based ShoppingCart with modular pricing',
+      'BOGO, percentage, and flat-rate discount implementations',
     ],
     featured: false,
-    gradient: 'from-violet-500/20 via-fuchsia-500/10 to-rose-500/20',
+    color: '#7c9cff',
   },
 ];
 
@@ -123,28 +126,28 @@ export const achievements = [
   {
     title: '100+ DSA Problems',
     description:
-      'Solved on LeetCode and GeeksforGeeks — arrays, trees, graphs, and OOP design with consistent pattern practice.',
+      'Arrays, trees, graphs, and OOP design on LeetCode & GeeksforGeeks — consistent pattern practice.',
   },
   {
     title: 'CircuLib Technical Docs',
     description:
-      'ER diagrams, stored procedure flows, auth flow, and API reference for faster onboarding and review.',
+      'ER diagrams, stored procedure flows, auth flow, and API reference for faster onboarding.',
   },
 ];
 
 export const marqueeItems = [
-  'React.js',
+  'React',
   'TypeScript',
+  'UI/UX',
+  'Design Systems',
   'Node.js',
   'PostgreSQL',
   'REST APIs',
   'RBAC',
-  'UI/UX',
-  'Responsive Design',
-  'Vite',
   'Framer Motion',
-  'Design Systems',
+  'Responsive Design',
   'Performance',
+  'Accessibility',
 ];
 
 export const navLinks = [
@@ -157,15 +160,25 @@ export const navLinks = [
 
 export const uxPrinciples = [
   {
-    title: 'Clarity First',
-    text: 'Hierarchy, spacing, and motion guide users — never decorate for decoration’s sake.',
+    title: 'Hierarchy & Clarity',
+    text: 'Typography scale, whitespace, and motion guide attention — every pixel earns its place.',
+    num: '01',
   },
   {
-    title: 'Performance Matters',
-    text: 'Lazy-loaded 3D, code-split bundles, and reduced-motion fallbacks built in.',
+    title: 'Performance by Default',
+    text: 'Lazy loading, code splitting, reduced-motion fallbacks — fast feels like good design.',
+    num: '02',
   },
   {
-    title: 'Systems Thinking',
-    text: 'Reusable tokens, components, and data layers — scalable like production code.',
+    title: 'Systems, Not One-offs',
+    text: 'Design tokens, reusable components, and typed data layers — built to scale like production.',
+    num: '03',
   },
+];
+
+export const processSteps = [
+  { step: 'Discover', detail: 'Understand user roles, constraints, and edge cases before writing code.' },
+  { step: 'Design', detail: 'Wire hierarchy, spacing, and interaction states — prototype in the browser.' },
+  { step: 'Build', detail: 'Component-driven development with typed APIs and accessible markup.' },
+  { step: 'Ship', detail: 'Deploy, document, and iterate based on real usage patterns.' },
 ];
