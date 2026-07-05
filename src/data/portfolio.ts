@@ -9,6 +9,7 @@ export const personal = {
   phone: '+91 76674 99479',
   linkedin: 'https://linkedin.com/in/miteshanshu',
   github: 'https://github.com/miteshanshu',
+  portfolioRepo: 'https://github.com/miteshanshu/mitesh-anshu-portfolio',
   location: 'India',
   availability: 'Open to full-time roles',
   summary:
@@ -62,8 +63,9 @@ export const projects = [
     subtitle: 'Library Circulation & Operations Platform',
     year: '2024',
     stack: ['React', 'Vite', 'Node.js', 'PostgreSQL', 'Recharts'],
-    github: 'https://github.com/miteshanshu',
-    live: null,
+    github: 'https://github.com/miteshanshu/Library-Management-System---RBAC',
+    githubBackend: 'https://github.com/miteshanshu/Library-Management-System---RBAC-Backend',
+    live: 'https://library-management-system-rbac.vercel.app',
     metrics: [
       { label: 'API Domains', value: '12' },
       { label: 'Portals', value: '3' },
@@ -86,7 +88,7 @@ export const projects = [
     subtitle: 'Discount System with Design Patterns',
     year: '2024',
     stack: ['Java', 'OOP', 'Strategy Pattern'],
-    github: 'https://github.com/miteshanshu',
+    github: 'https://github.com/miteshanshu/java-oop-billing-engine',
     live: null,
     metrics: [
       { label: 'Patterns', value: '3+' },

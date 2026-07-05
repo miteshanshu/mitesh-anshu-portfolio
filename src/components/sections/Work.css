@@ -68,6 +68,14 @@
   background: var(--accent-soft);
 }
 
+.work__link-backend {
+  width: auto !important;
+  padding: 0 0.65rem !important;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  border-radius: 999px !important;
+}
+
 .work__metrics {
   display: flex;
   gap: 1.5rem;

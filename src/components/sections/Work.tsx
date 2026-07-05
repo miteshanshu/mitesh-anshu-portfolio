@@ -44,8 +44,20 @@ export function Work() {
                       <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <GithubIcon size={18} />
                       </a>
+                      {'githubBackend' in project && project.githubBackend && (
+                        <a
+                          href={project.githubBackend}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Backend repository"
+                          className="work__link-backend mono"
+                          title="Backend repo"
+                        >
+                          API
+                        </a>
+                      )}
                       {project.live && (
-                        <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label="Live">
+                        <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label="Live demo">
                           <ExternalLink size={18} />
                         </a>
                       )}
