@@ -1,32 +1,40 @@
-# React + TypeScript + Vite
+# mitesh-anshu-portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio website for **Mitesh Kumar Anshu** — Full-Stack Engineer.
 
-Currently, two official plugins are available:
+## Live
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://mitesh-anshu.vercel.app
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript + Vite
+- Framer Motion
+- React Three Fiber (lazy-loaded 3D hero)
+- CSS design tokens & component architecture
 
-## Expanding the Oxlint configuration
+## Featured projects
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- [CircuLib](https://github.com/miteshanshu/Library-Management-System---RBAC) — Role-based library platform
+- [Smart Billing Engine](https://github.com/miteshanshu/java-oop-billing-engine) — Java OOP & Strategy pattern
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Run locally
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Contact
+
+- Portfolio: https://mitesh-anshu.vercel.app
+- GitHub: https://github.com/miteshanshu
+- LinkedIn: https://linkedin.com/in/miteshanshu
+- Email: miteshanshu1@gmail.com
